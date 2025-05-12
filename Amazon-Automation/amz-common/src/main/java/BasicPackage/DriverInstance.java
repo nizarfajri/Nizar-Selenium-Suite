@@ -1,3 +1,5 @@
+package BasicPackage;
+
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Objects;
@@ -82,7 +84,7 @@ public void setUpDriver() throws IOException {
                     "Browser.Version", browserVersion.get(),
                     "URL", appUrl
             ),
-            "allure-results"
+            "../amz-common/allure-results"
     );
 
     // Log session for debug

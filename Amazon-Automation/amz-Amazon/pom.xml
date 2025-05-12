@@ -8,8 +8,9 @@
         <artifactId>Amazon-Automation</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>amz-common</artifactId>
-    <name>amz-common</name>
+    <artifactId>amz-Amazon</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>amz-Amazon</name>
     <url>http://maven.apache.org</url>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -18,12 +19,7 @@
         <aspectj.version>1.9.24</aspectj.version>
     </properties>
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-api</artifactId>-->
-<!--            <version>5.11.4</version>-->
-<!--        </dependency>-->
-        <dependency>
+                <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.32.0</version>
@@ -54,22 +50,12 @@
             <version>2.29.1</version>
         </dependency>
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.15.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>6.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.automatedowl</groupId>
-            <artifactId>allure-environment-writer</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.amazon</groupId>
+            <artifactId>amz-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-<build>
+    <build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -86,11 +72,14 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.5.3</version>
 					<configuration>
+                        <systemPropertyVariables>
+						<allure.results.directory>../amz-common/allure-results</allure.results.directory>
+					</systemPropertyVariables>
 						<testFailureIgnore>true</testFailureIgnore>
 						<argLine>
 							-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
 						</argLine>
-						<suiteXmlFiles></suiteXmlFiles>
+						<suiteXmlFiles>testng.xml</suiteXmlFiles>
 					</configuration>
 					<dependencies>
 						<dependency>
@@ -99,7 +88,6 @@
 							<version>${aspectj.version}</version>
 						</dependency>
 					</dependencies>
-					<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -107,4 +95,5 @@
 	<reporting>
 		<excludeDefaults>true</excludeDefaults>
 	</reporting>
+
 </project>

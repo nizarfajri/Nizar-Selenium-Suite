@@ -1,3 +1,5 @@
+package BasicPackage;
+
 import java.io.ByteArrayInputStream;
 
 import org.openqa.selenium.OutputType;

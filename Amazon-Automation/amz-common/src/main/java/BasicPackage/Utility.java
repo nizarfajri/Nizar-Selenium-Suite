@@ -1,8 +1,9 @@
+package BasicPackage;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Enumeration;
 import java.util.Properties;
 
 import org.openqa.selenium.OutputType;

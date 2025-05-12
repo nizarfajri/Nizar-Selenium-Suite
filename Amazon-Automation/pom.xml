@@ -12,7 +12,8 @@
     <description>Automation of Amazon Website</description>
 
     <modules>
-    <module>amz-common</module>
-</modules>
+        <module>amz-common</module>
+        <module>amz-Amazon</module>
+    </modules>
 
 </project>
